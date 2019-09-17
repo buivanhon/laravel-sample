@@ -80,7 +80,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $data = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|unique:articles,title,'. $article->id,
             'content' => 'required|min:50'
         ]);
 
