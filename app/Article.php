@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = ['title', 'content'];
-    protected $title = 'Default value';
+    protected $attributes = [];
 }
