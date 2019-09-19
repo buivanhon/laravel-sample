@@ -4,6 +4,10 @@
 
 <h1>Article <a href="{{ route('articles.create') }}">[+]</a></h1>
 
+@if ( session()->has('message') )
+    <div class="alert alert-success" role="alert">{{ session()->get('message') }}</div>
+@endif
+
 <table class="table">
         <thead>
             <tr>
@@ -32,4 +36,7 @@
         </tbody>
     </table>
 
+    <div class="row d-flex">
+    {{ $articles->links() }}
+    </div>
 @endsection

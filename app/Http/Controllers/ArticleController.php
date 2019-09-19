@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        //$articles = Article::all();
+        $articles = Article::paginate(2);
         return view('article.index', compact('articles'));
     }
 
@@ -45,7 +46,7 @@ class ArticleController extends Controller
 
         Article::create($data);
 
-        return back();
+        return back()->with('message', 'Created');
     }
 
     /**
@@ -86,7 +87,7 @@ class ArticleController extends Controller
 
         $article->update($data);
 
-        return redirect(route('articles.index'));
+        return redirect(route('articles.index'))->with('message', 'Updated');
     }
 
     /**
@@ -99,7 +100,7 @@ class ArticleController extends Controller
     {
         $article->delete();
 
-        return redirect('articles/');
+        return redirect('articles/')->with('message', 'Deleted');;
     }
 
 

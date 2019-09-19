@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('stylesheets')
+<link href="{{ asset('css/home.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
 <div class="flex-center position-ref full-height">
             <div class="content">
